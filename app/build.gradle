@@ -39,11 +39,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.0.4"
 
     // Dependencies required for Okta OIDC
-    implementation 'com.okta.authn.sdk:okta-authn-sdk-api:1.0.0'
-    implementation('com.okta.authn.sdk:okta-authn-sdk-impl:1.0.0') {
+    implementation 'com.okta.authn.sdk:okta-authn-sdk-api:2.0.0'
+    implementation('com.okta.authn.sdk:okta-authn-sdk-impl:2.0.0') {
         exclude group: 'com.okta.sdk', module: 'okta-sdk-httpclient'
     }
-    implementation 'com.okta.android:oidc-androidx:1.0.11'
+    implementation 'com.okta.android:oidc-androidx:1.0.17'
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
