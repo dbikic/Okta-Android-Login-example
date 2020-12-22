@@ -1,13 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
 }
 
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.2"
-
     defaultConfig {
         applicationId "dev.dbikic.oktaloginexample"
         minSdkVersion 23
@@ -20,6 +18,9 @@ android {
         manifestPlaceholders = [
                 "appAuthRedirectScheme": "com.okta.dev-123456"
         ]
+    }
+    buildFeatures {
+        viewBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

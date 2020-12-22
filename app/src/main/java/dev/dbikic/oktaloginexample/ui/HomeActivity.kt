@@ -7,20 +7,22 @@ import com.okta.oidc.RequestCallback
 import com.okta.oidc.net.response.UserInfo
 import com.okta.oidc.util.AuthorizationException
 import dev.dbikic.oktaloginexample.OktaLoginApplication
-import dev.dbikic.oktaloginexample.R
+import dev.dbikic.oktaloginexample.databinding.ActivityHomeBinding
 import dev.dbikic.oktaloginexample.extensions.showShortToast
 import dev.dbikic.oktaloginexample.managers.OktaManager
-import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity(R.layout.activity_home) {
+class HomeActivity : AppCompatActivity() {
 
     private val oktaManager: OktaManager by lazy { (application as OktaLoginApplication).oktaManager }
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         oktaManager.registerUserProfileCallback(getUserProfileCallback())
-        signOutButton.setOnClickListener {
+        binding.signOutButton.setOnClickListener {
             oktaManager.signOut(this, getSignOutCallback())
         }
     }
@@ -44,7 +46,7 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
     private fun getUserProfileCallback(): RequestCallback<UserInfo, AuthorizationException> {
         return object : RequestCallback<UserInfo, AuthorizationException> {
             override fun onSuccess(result: UserInfo) {
-                userLabel.text = "Hello, ${result["preferred_username"]}!"
+                binding.userLabel.text = "Hello, ${result["preferred_username"]}!"
             }
 
             override fun onError(msg: String?, exception: AuthorizationException?) {

@@ -16,6 +16,7 @@
     android:layout_marginStart="@dimen/grid_40"
     android:layout_marginEnd="@dimen/grid_40"
     android:text="Sign in"
+    android:onClick="signIn"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"

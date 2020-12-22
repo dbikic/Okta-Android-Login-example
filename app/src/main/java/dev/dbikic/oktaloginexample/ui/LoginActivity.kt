@@ -6,20 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import com.okta.oidc.*
 import com.okta.oidc.util.AuthorizationException
 import dev.dbikic.oktaloginexample.OktaLoginApplication
-import dev.dbikic.oktaloginexample.R
+import dev.dbikic.oktaloginexample.databinding.ActivityLoginBinding
 import dev.dbikic.oktaloginexample.extensions.showShortToast
 import dev.dbikic.oktaloginexample.managers.OktaManager
-import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(R.layout.activity_login) {
+class LoginActivity : AppCompatActivity() {
 
     private val oktaManager: OktaManager by lazy { (application as OktaLoginApplication).oktaManager }
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         oktaManager.registerWebAuthCallback(getAuthCallback(), this)
-        signInButton.setOnClickListener {
+        binding.signInButton.setOnClickListener {
             val payload = AuthenticationPayload.Builder().build()
             oktaManager.signIn(this, payload)
         }

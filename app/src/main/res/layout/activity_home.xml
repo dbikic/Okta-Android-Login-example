@@ -24,5 +24,6 @@
     android:layout_marginStart="@dimen/grid_40"
     android:layout_marginEnd="@dimen/grid_40"
     android:text="Log out"
+    android:onClick="signOut"
     tools:ignore="HardcodedText" />
 </LinearLayout>
