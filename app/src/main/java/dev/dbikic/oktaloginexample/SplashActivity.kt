@@ -1,9 +1,8 @@
-package dev.dbikic.oktaloginexample.ui
+package dev.dbikic.oktaloginexample
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.dbikic.oktaloginexample.OktaLoginApplication
 import dev.dbikic.oktaloginexample.managers.OktaManager
 
 class SplashActivity : AppCompatActivity() {

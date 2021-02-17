@@ -1,4 +1,4 @@
-package dev.dbikic.oktaloginexample.ui
+package dev.dbikic.oktaloginexample
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.okta.oidc.RequestCallback
 import com.okta.oidc.net.response.UserInfo
 import com.okta.oidc.util.AuthorizationException
-import dev.dbikic.oktaloginexample.OktaLoginApplication
 import dev.dbikic.oktaloginexample.databinding.ActivityHomeBinding
 import dev.dbikic.oktaloginexample.extensions.showShortToast
 import dev.dbikic.oktaloginexample.managers.OktaManager
