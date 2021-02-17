@@ -62,4 +62,8 @@ class OktaManager(applicationContext: Context) {
     fun clearUserData() {
         sessionClient.clear()
     }
+
+    fun getJwtToken(): String {
+        return sessionClient.tokens.accessToken.orEmpty()
+    }
 }
